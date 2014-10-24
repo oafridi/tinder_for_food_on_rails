@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20141024035709) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "items", force: true do |t|
     t.string   "pic_url"
     t.string   "info_url"
