@@ -1,11 +1,13 @@
 <div class="center jumbotron">
 
-Click like or dislike you fool!!!
+  <h3> Click like or dislike you fool! </h3>
 
-<p> 
-  <%= image_tag(@items.sample.pic_url, size: "500x500", :alt => "rss feed") %>
-</p>
+  <p> 
+    <%= image_tag(@items.sample.pic_url, size: "500x500", :alt => "rss feed") %>
+  </p>
 
-<%= link_to "like", :controller => :pages, :action => :view %>
-<%= link_to "dislike", :controller => :pages, :action => :view %>
+  <%= link_to "dislike", {:controller => :pages, :action => :view}, class: "btn btn-lg btn-primary" %>
+  <%= link_to "like", {:controller => :pages, :action => :view}, class: "btn btn-lg btn-primary" %>
+
+
 </div>

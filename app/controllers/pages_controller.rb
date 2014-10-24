@@ -4,6 +4,10 @@ class PagesController < ApplicationController
     
   end
 
+  def help
+    
+  end
+
   def view
 
     @items = Item.all
