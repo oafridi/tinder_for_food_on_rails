@@ -29,7 +29,7 @@ development:
   encoding: unicode
   database: tinder_for_food_dev
   pool: 5
-  username: osmanafridi
+  username:
   password:
 
 test:
@@ -37,5 +37,5 @@ test:
   encoding: unicode
   database: tinder_for_food_test
   pool: 5
-  username: osmanafridi
+  username:
   password:
