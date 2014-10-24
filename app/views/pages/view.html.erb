@@ -1,0 +1,8 @@
+Click like or dislike you fool!!!
+
+<p> 
+  <%= image_tag(@items.sample.pic_url, size: "500x500", :alt => "rss feed") %>
+</p>
+
+<%= link_to "like", :controller => :pages, :action => :view %>
+<%= link_to "dislike", :controller => :pages, :action => :view %>
