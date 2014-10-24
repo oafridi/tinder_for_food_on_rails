@@ -8,8 +8,16 @@ class PagesController < ApplicationController
 
   end
 
+  def liked_items
+    @user = User.find(3)
+    @rated_item_ids = Rating.where('user_id = ?',@user.id)
+    @item_ids = []
+    @rated_item_ids.each { |rated| @item_ids << rated.item_id }
+    @item_ids
+  end
+
   def view
-    @user = User.find(5)
+    @user = User.find(3)
     puts "UserId:"
     p @user
     rated_item_ids = Rating.where('user_id = ?',@user.id).pluck(:item_id)
