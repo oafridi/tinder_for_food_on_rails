@@ -18,7 +18,7 @@ class PagesController < ApplicationController
     @rated_item_ids.each { |rated| @item_ids << rated.item_id }
 
     if !@item_ids || @item_ids.empty?
-      render "index"
+      render "none_liked"
     end
   end
 
@@ -35,7 +35,16 @@ class PagesController < ApplicationController
     end
     puts "Unrated Item Ids:"
     p unrated_item_ids
-    @item = Item.find(unrated_item_ids.sample)
+
+    begin
+      @item = Item.find(unrated_item_ids.sample)
+    rescue ActiveRecord::RecordNotFound => e
+      @item = nil
+    end
+
+    if @item == nil
+      render "no_items"
+    end
   end
 
   def like
