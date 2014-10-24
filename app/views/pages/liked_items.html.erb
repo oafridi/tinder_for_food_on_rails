@@ -1,6 +1,8 @@
 <div class="center jumbotron">
   <h3>These are the items you liked</h3>
-    <%= @item_ids.each do |item| %>
-      <p> <%= image_tag( Item.find(item).pic_url, size:"300x300")  %> <p>
+    <%= @items.each do |hash| %>
+      <p> <%= image_tag( hash[:item].pic_url, size:"300x300")  %>
+      <%= hash[:restaurant].name %>
+      <p>
     <% end %>
 </div>
