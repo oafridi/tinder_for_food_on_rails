@@ -9,15 +9,20 @@ class PagesController < ApplicationController
   end
 
   def liked_items
-    @user = User.find(3)
-    @rated_item_ids = Rating.where('user_id = ?',@user.id)
+    @user = User.find(4)
+    @rated_item_ids = Rating.where("user_id = ? AND liked = ?", @user.id, true)
+    # where("orders_count = ? AND locked = ?", params[:orders], false)
     @item_ids = []
     @rated_item_ids.each { |rated| @item_ids << rated.item_id }
-    @item_ids
+    
+
+    if !@item_ids || @item_ids.empty?
+      render "index"
+    end
   end
 
   def view
-    @user = User.find(3)
+    @user = User.find(4)
     puts "UserId:"
     p @user
     rated_item_ids = Rating.where('user_id = ?',@user.id).pluck(:item_id)
