@@ -1,8 +1,12 @@
 <div class="center jumbotron">
   <h3>These are the items you liked</h3>
-    <%= @items.each do |hash| %>
-      <p> <%= image_tag( hash[:item].pic_url, size:"300x300")  %>
-      <%= hash[:restaurant].name %>
-      <p>
+    <% @items.each do |hash| %>
+      <div style="display:block; clear:both; margin: 20px 0px;">
+        <%= image_tag( hash[:item].pic_url, size:"300x300", style: "display:inline block;")  %>
+        <div style="display:inline block;">
+          <b><%= hash[:restaurant].name %></b>
+          <%= hash[:restaurant].location %>
+        </div>
+      </div>
     <% end %>
 </div>
