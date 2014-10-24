@@ -32,6 +32,9 @@ Rails.application.configure do
   # Raises helpful error messages.
   config.assets.raise_runtime_errors = true
 
+  # Add Rack::LiveReload to the bottom of the middleware stack with the default options.
+  config.middleware.use Rack::LiveReload
+
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
 end
